@@ -39,7 +39,7 @@ def get_tree (oid, base_path=''):
     for type_, oid, name in _iter_tree_entries (oid):
         assert '/' not in name
         assert name not in ('..', '.')
-        path = base_path name
+        path = base_path + name
         if type_ == 'blob':
             result[path] = oid
         elif type_ == 'tree':
@@ -72,6 +72,13 @@ def read_tree (tree_oid):
         os.makedirs (os.path.dirname (path), exist_ok=True)
         with open (path, 'wb') as f:
             f.write (data.get_object (oid))
+
+def commit (message):
+    commit = f'tree {write_tree ()}\n'
+    commit += '\n'
+    commit += f'{message}\n'
+
+    return data.hash_object (commit.encode (), 'commit')
 
 
                 
