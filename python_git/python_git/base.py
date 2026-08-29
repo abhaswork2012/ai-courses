@@ -123,6 +123,7 @@ def get_commit (oid):
     return Commit (tree=tree, parent=parent, message=message)
 
 def get_oid (name):
+    if name == '@': name = 'HEAD'
     # Name is ref
     refs_to_try = [
         f'{name}',
