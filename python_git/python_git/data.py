@@ -46,13 +46,15 @@ def _get_ref_internal (ref, deref):
 
 
 
-def iter_refs (deref=True):
-    refs = ['HEAD']
-    for root, _, filenames in os.walk (f'{GIT_DIR}/refs/'):
-        root = os.path.relpath (root, GIT_DIR)
-        refs.extend (f'{root}/{name}' for name in filenames)
+def iter_refs (prefix='', deref=True):
+      refs = ['HEAD']
+      for root, _, filenames in os.walk (f'{GIT_DIR}/refs/'):
+          root = os.path.relpath (root, GIT_DIR)
+          refs.extend (f'{root}/{name}' for name in filenames)
 
-    for refname in refs:
+      for refname in refs:
+        if not refname.startswith (prefix):
+            continue
         yield refname, get_ref (refname, deref=deref)
 
 
