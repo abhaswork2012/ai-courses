@@ -99,6 +99,9 @@ def checkout (oid):
     commit = get_commit (oid)
     read_tree (commit.tree)
     data.update_ref ('HEAD', oid)
+    
+def create_branch (name, oid):
+   data.update_ref (f'refs/heads/{name}', oid)
 
 Commit = namedtuple ('Commit', ['tree', 'parent', 'message'])
 
