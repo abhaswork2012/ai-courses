@@ -65,8 +65,8 @@ def parse_args():
     return parser.parse_args()
 
 def init(args):
-    data.init ()
-    print (f'Initialized empty ugit repository in {os.getcwd()}/{data.GIT_DIR}')
+    base.init ()
+    print (f'Initialized empty python_git repository in {os.getcwd()}/{data.GIT_DIR}')
     
 def hash_object (args):
     with open (args.file, 'rb') as f:
