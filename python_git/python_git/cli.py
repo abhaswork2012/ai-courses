@@ -115,8 +115,12 @@ def k (args):
     dot += '}'
     print (dot)
 
-    with subprocess.Popen (
-            ['dot', '-Tgtk', '/dev/stdin'],
-            stdin=subprocess.PIPE) as proc:
-        proc.communicate (dot.encode ())
+    # with subprocess.Popen (
+    #         ['dot', '-Tgtk', '/dev/stdin'],
+    #         stdin=subprocess.PIPE) as proc:
+    #     proc.communicate (dot.encode ())
    
+    with subprocess.Popen(
+            ['dot', '-Tpng', '-o', 'graph.png'],
+            stdin=subprocess.PIPE) as proc:
+        proc.communicate(dot.encode())
