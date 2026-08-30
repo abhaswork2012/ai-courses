@@ -133,9 +133,9 @@ def iter_commits_and_parents (oids):
         visited.add (oid)
         yield oid
 
-    commit = get_commit (oid)
-    # Return parent next
-    oids.appendleft (commit.parent)
+        commit = get_commit (oid)
+        # Return parent next
+        oids.appendleft (commit.parent)
 
 
 
