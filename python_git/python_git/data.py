@@ -1,10 +1,22 @@
 import os
 import hashlib
 from collections import namedtuple
+from contextlib import contextmanager
 
 from cbor2 import value
+ 
+# Will be initialized in cli.main()
+GIT_DIR = None
 
-GIT_DIR = '.python_git'
+
+@contextmanager
+def change_git_dir (new_dir):
+    global GIT_DIR
+    old_dir = GIT_DIR
+    GIT_DIR = f'{new_dir}/.python_git'
+    yield
+    GIT_DIR = old_dir
+
 RefValue = namedtuple('RefValue', ['symbolic', 'value'])
 
 def init ():
