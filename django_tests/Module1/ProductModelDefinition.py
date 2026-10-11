@@ -13,3 +13,5 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     def __str__(self):
         return f"{self.name} - ${self.price:.2f}"
+    
+# https://www.staffcoder.com/questions/10055?step=5a49da7d-07b1-4acd-ac84-c7fec5bd8b33
