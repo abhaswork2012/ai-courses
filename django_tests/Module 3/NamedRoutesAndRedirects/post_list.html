@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>Posts</title></head>
+<body>
+<h1>Posts</h1>
+<ul>
+{% for post in posts %}
+  <li>
+    <a href="{# Write your code here #}">{{ post.title }}</a>
+    (<a href="{# Write your code here #}">{{ post.year }}</a>)
+  </li>
+{% endfor %}
+</ul>
+</body>
+</html>
