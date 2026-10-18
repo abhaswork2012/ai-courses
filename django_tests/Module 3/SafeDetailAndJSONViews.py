@@ -1,3 +1,5 @@
+# https://www.staffcoder.com/questions/safe-detail-and-json-views
+
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, render
 from app.models import Product
