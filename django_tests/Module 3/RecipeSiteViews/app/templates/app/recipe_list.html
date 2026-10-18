@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>Recipes</title></head>
+<body>
+<h1>Recipes</h1>
+<ul>
+{% for recipe in recipes %}
+  <li>
+    <a href="{# Write your code here #}">{{ recipe.title }}</a>
+    (<a href="{# Write your code here #}">{{ recipe.year }}</a>)
+  </li>
+{% endfor %}
+</ul>
+</body>
+</html>
