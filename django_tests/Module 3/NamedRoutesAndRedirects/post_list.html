@@ -6,8 +6,8 @@
 <ul>
 {% for post in posts %}
   <li>
-    <a href="{# Write your code here #}">{{ post.title }}</a>
-    (<a href="{# Write your code here #}">{{ post.year }}</a>)
+    <a href="{% url 'blog:post-detail' post.year post.slug%}">{{ post.title }}</a>
+    (<a href="{% url 'blog:post-archive' post.year %}">{{ post.year }}</a>)
   </li>
 {% endfor %}
 </ul>

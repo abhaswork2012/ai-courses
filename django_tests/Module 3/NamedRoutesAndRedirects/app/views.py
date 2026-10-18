@@ -1,5 +1,6 @@
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponsePermanentRedirect
 from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
 from app.models import Post
 def home(request):
     return HttpResponse(f"Backend server running on port {request.get_port()}")
@@ -13,4 +14,6 @@ def post_archive(request, year):
     return render(request, "app/post_archive.html", {"year": year, "posts": posts})
 def legacy_post_redirect(request, pk):
     # Write your code here
-    raise NotImplementedError
+    post = get_object_or_404(Post,id=pk)
+    url = reverse("blog:post-detail", kwargs={"year":post.year,"slug":post.slug })
+    return HttpResponsePermanentRedirect(url)

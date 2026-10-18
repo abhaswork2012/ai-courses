@@ -5,9 +5,9 @@
 <h1>Posts from {{ year }}</h1>
 <ul>
 {% for post in posts %}
-  <li><a href="{# Write your code here #}">{{ post.title }}</a></li>
+  <li><a href="{% url 'blog:post-detail' post.year post.slug%}">{{ post.title }}</a></li>
 {% endfor %}
 </ul>
-<a href="{# Write your code here #}">All posts</a>
+<a href="{% url 'blog:post-list' %}">All posts</a>
 </body>
 </html>
