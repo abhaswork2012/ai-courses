@@ -5,9 +5,9 @@
 <h1>{{ recipe.title }}</h1>
 <p>{{ recipe.description }}</p>
 <p>
-  <a href="{# Write your code here #}">All recipes</a>
-  | <a href="{# Write your code here #}">More from {{ recipe.year }}</a>
-  | <a href="{# Write your code here #}">JSON</a>
+  <a href="{% url 'recipes:recipe-list' %}">All recipes</a>
+  | <a href="{% url 'recipes:recipe-archive' recipe.year %}">More from {{ recipe.year }}</a>
+  | <a href="{% url 'recipes:recipe-json' recipe.slug %}">JSON</a>
 </p>
 </body>
 </html>

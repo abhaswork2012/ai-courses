@@ -6,8 +6,8 @@
 <ul>
 {% for recipe in recipes %}
   <li>
-    <a href="{# Write your code here #}">{{ recipe.title }}</a>
-    (<a href="{# Write your code here #}">{{ recipe.year }}</a>)
+    <a href="{% url 'recipes:recipe-detail' recipe.slug %}">{{ recipe.title }}</a>
+    (<a href="{% url 'recipes:recipe-archive' recipe.year %}">{{ recipe.year }}</a>)
   </li>
 {% endfor %}
 </ul>

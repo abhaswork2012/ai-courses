@@ -5,9 +5,9 @@
 <h1>Recipes from {{ year }}</h1>
 <ul>
 {% for recipe in recipes %}
-  <li><a href="{# Write your code here #}">{{ recipe.title }}</a></li>
+  <li><a href="{% url 'recipes:recipe-detail' recipe.slug %}">{{ recipe.title }}</a></li>
 {% endfor %}
 </ul>
-<p><a href="{# Write your code here #}">All recipes</a></p>
+<p><a href="{% url 'recipes:recipe-list' %}">All recipes</a></p>
 </body>
 </html>
