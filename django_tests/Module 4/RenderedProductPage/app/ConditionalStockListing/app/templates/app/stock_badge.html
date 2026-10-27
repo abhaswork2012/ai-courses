@@ -1,1 +1,6 @@
 {# Write your code here #}
+{% if product.stock == 0 %}
+  <span class="badge-sold-out">Sold out</span>
+{% elif product.stock <= 3 %}
+  <span class="badge-low-stock">Only {{ product.stock }} left</span>
+{% endif %}

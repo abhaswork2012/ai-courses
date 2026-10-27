@@ -17,5 +17,14 @@
 <body>
   <h1>Products</h1>
   {# Write your code here #}
+  {% if products %}
+  <ul class="product-list">
+  {% for product in products %}
+  <li class="product-row {% if forloop.counter|divisibleby:2 %}row-even{% else %}row-odd{% endif %}"><span class="row-number">{{forloop.counter}}</span> <span class="product-name">{{product.name}}</span> {% include "app/stock_badge.html" %}</li>
+  {% endfor %}
+  </ul>
+  {% else %}
+  <h3 class="empty-state">No products available.</h3>
+  {% endif %}
 </body>
 </html>
