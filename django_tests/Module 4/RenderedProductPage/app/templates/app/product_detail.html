@@ -1,1 +1,9 @@
 {# Write your code here #}
+<ul>
+    <li><h3 id="product-name">{{ product.name }}</h3></li>
+    <li id="product-sku">SKU: {{ product.sku }}</li>
+    <li id="product-price">Price: ${{ product.price|floatformat:2 }}</li>
+    <li id="product-released">Released: {{ product.released_on|date:"F j, Y" }}</li>
+    <li id="product-manufacturer">Manufacturer: {{ product.manufacturer|default:"Not specified" }}</li>
+    <li id="product-description">{{ product.description|truncatewords:10 }}</li>
+</ul>
