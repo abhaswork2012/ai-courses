@@ -1,1 +1,21 @@
 {# Write your code here #}
+{% extends 'app/base.html' %}
+{% block title %} All Products {% endblock %}
+{% block content %}
+<h1>All Products</h1>
+<ul>
+{% if products %}
+{% for product in products %}
+<li class ="product-row {% if forloop.counter|divisibleby:2 %}row-even{% else %}row-odd{% endif %}">
+    <span class="row-number">{{forloop.counter}}</span>
+    <a href="{% url 'product-detail' product.pk %}" class="product-name">{{product.name}}</a>
+    <span class="product-price">${{product.price|floatformat:2}}</span>
+    <span class="product-teaser">{{product.description|truncatewords:10}}</span>
+    {% include "app/stock_badge.html" with product=product %}
+</li>
+{% endfor %}
+{% else %}
+<span class="empty-state">No products available.</span>
+{% endif %}
+</ul>
+{% endblock %}

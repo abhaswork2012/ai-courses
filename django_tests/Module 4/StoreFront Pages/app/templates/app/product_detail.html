@@ -1,1 +1,12 @@
 {# Write your code here #}
+{% extends 'app/base.html' %}
+{% block title %} {{product.name}} {% endblock %}
+{% block content %}
+<span id="product-name">{{product.name}}</span>
+<span id="product-sku">SKU: {{product.sku}}</span>
+<span id="product-price">Price: ${{product.price|floatformat:2}}</span>
+<span id="product-released">Released: {{product.released_on|date:"F j, Y"}}</span>
+<span id="product-manufacturer">Manufacturer: {{product.manufacturer|default:"Not specified"}}</span>
+<span id="product-description">{{product.description}}</span>
+{% include "app/stock_badge.html" with product=product %}
+{% endblock %}

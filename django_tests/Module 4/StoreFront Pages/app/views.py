@@ -7,8 +7,10 @@ def home(request):
 @require_GET
 def product_list(request):
     # Write your code here
-    raise NotImplementedError
+    products = Product.objects.all()
+    return render(request,"app/product_list.html",context={"products":products})
 @require_GET
 def product_detail(request, pk):
     # Write your code here
-    raise NotImplementedError
+    product = get_object_or_404(Product,pk=pk)
+    return render(request,"app/product_detail.html",context={"product":product})

@@ -1,1 +1,19 @@
 {# Write your code here #}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            {% block title %}
+            Storefront
+            {% endblock %}
+        </title>
+    </head>
+    <body>
+        {% include 'app/navbar.html' %}
+        <main>
+            {% block content %}
+            <p>Content coming soon.</p>
+            {% endblock %}
+        </main>
+    </body>
+</html>
