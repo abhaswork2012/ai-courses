@@ -1,0 +1,17 @@
+{# Write your code here: load the static library, then resolve both asset URLs with the static tag #}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Catalogue</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'app/site.css' %}">
+</head>
+<body>
+  <img id="logo" src="{% static 'app/logo.svg' %}" alt="Deskwise">
+  <h1>Catalogue</h1>
+  <ul>
+    {% for product in products %}<li>{{ product.name }} - {{ product.price }}</li>{% endfor %}
+  </ul>
+</body>
+</html>
