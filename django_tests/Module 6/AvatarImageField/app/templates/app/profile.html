@@ -1,8 +1,16 @@
-{% load static %}<!doctype html>
+{% load static %}
+<!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><title>{{ profile.display_name }}</title></head>
+<head>
+  <meta charset="utf-8">
+  <title>{{ profile.display_name }}</title>
+</head>
 <body>
   <h1>{{ profile.display_name }}</h1>
-  {# Write your code here: the avatar image, with its fallback #}
+  {% if profile.avatar %}
+    <img src="{{ profile.avatar.url }}" id="avatar" alt="Profile avatar">
+  {% else %}
+    <img src="{% static 'app/avatar-placeholder.svg' %}" id="avatar" alt="Default avatar">
+  {% endif %}
 </body>
 </html>

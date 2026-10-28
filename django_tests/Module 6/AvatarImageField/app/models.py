@@ -5,6 +5,7 @@ class Profile(models.Model):
     show and nothing to fall back from.
     """
     display_name = models.CharField(max_length=200)
+    avatar = models.ImageField(upload_to="avatars/", blank=True)
     # Write your code here
     def __str__(self):
         return self.display_name
