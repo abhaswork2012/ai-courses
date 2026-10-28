@@ -1,0 +1,12 @@
+{# Write your code here: the form tag below is missing one attribute. #}
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Apply</title></head>
+<body>
+  <h1>Apply</h1>
+  <form method="post" action="{% url 'apply' %}">
+    {{ form.as_p }}
+    <button type="submit">Submit application</button>
+  </form>
+</body>
+</html>
