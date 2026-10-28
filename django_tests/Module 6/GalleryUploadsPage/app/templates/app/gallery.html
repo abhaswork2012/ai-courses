@@ -4,10 +4,28 @@
   <meta charset="utf-8">
   <title>Gallery</title>
   {# Write your code here: load the static library and resolve this stylesheet with the static tag #}
-  <link rel="stylesheet" href="/assets/gallery.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'app/gallery.css' %}">
 </head>
 <body>
   <h1>Gallery</h1>
   {# Write your code here: the upload form, then the photo listing. #}
+  <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload Photo</button>
+    </form>
+    <ul id="photos">
+        {% for photo in photos %}
+            <li>
+                {% if photo.image %}
+                    <img class="photo" src="{{ photo.image.url }}" alt="{{ photo.title }}">
+                {% else %}
+                    <img class="photo" src="{% static 'app/photo-placeholder.svg' %}" alt="Photo placeholder">
+                {% endif %}
+                <span class="title">{{ photo.title }}</span>
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
