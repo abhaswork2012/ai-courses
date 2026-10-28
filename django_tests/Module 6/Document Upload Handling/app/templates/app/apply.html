@@ -4,7 +4,7 @@
 <head><meta charset="utf-8"><title>Apply</title></head>
 <body>
   <h1>Apply</h1>
-  <form method="post" action="{% url 'apply' %}">
+  <form method="post" action="{% url 'apply' %}" enctype="multipart/form-data">
     {{ form.as_p }}
     <button type="submit">Submit application</button>
   </form>
