@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
 class Note(models.Model):
     """One note, belonging to whoever wrote it.
     The fields and the owner are given. What the model cannot yet answer is
@@ -11,6 +12,8 @@ class Note(models.Model):
     created_on = models.DateField()
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
                               related_name="notes")
-    # Write your code here
+    def get_absolute_url(self):
+        return reverse("note-detail", kwargs={"slug": self.slug})
+    
     def __str__(self):
         return self.title
