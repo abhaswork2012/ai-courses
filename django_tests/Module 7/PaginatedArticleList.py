@@ -11,4 +11,7 @@ def home(request):
     return HttpResponse(f"Backend server running on port {request.get_port()}")
 class ArticleListView(ListView):
     model = Article
-    # Write your code here
+    template_name = "app/articles.html"
+    context_object_name = "articles"
+    ordering = ("-published_on", "title")
+    paginate_by = 5
